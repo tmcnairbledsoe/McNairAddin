@@ -1,0 +1,21 @@
+﻿<Window x:Class="FillPatternEditor.PatternListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PatternViewer" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Grid: List of pattern names and swatches -->
+        <Grid Name="PatternGrid">
+            <!-- This grid will hold pattern names, previews, and edit buttons -->
+        </Grid>
+
+        <!-- Right Grid: PreviewControl -->
+        <Grid Name="PreviewGrid" Grid.Column="1">
+            <!-- The PreviewControl will be added here programmatically -->
+        </Grid>
+    </Grid>
+</Window>
