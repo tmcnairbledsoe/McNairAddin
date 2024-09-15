@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>McNairsAddin</Name>
+    <Assembly>.\McNairsAddin.dll</Assembly>
+    <AddInId>69B2F3A1-7C4B-4F0A-BFB6-6B948D5C5D28</AddInId>
+    <VendorId>McNairBledsoe</VendorId>
+    <VendorDescription>tmcnairbledsoe@gmail.com</VendorDescription>
+    <FullClassName>McNairsAddin.App</FullClassName>
+  </AddIn>
+</RevitAddIns>
