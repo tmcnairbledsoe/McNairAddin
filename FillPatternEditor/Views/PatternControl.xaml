@@ -1,0 +1,110 @@
+<UserControl
+    x:Class="FillPatternEditor.Views.PatternControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:local="clr-namespace:FillPatternEditor.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:converters="clr-namespace:FillPatternEditor.Converters"
+    xmlns:models="clr-namespace:FillPatternEditor.Models"
+    >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="*"/>-->
+        </Grid.RowDefinitions>
+
+        <!-- Pattern Viewer with Scale Slider -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Fill Pattern Viewer Control -->
+            <Border Grid.Column="0" Background="Transparent" Padding="10">
+                <local:FillPatternViewerControl x:Name="FillPatternViewerControl" Height="400" VerticalAlignment="Top"
+                                                ColorBrush="{DynamicResource BlackBrush}" 
+                                                FillPattern="{Binding Path=FillPattern, IsAsync=True}"
+                                                Scale="{Binding ElementName=PreviewScale, Path=Value}"/>
+            </Border>
+
+            <!-- Slider to control Scale -->
+            <Slider x:Name="PreviewScale" Grid.Column="1" Maximum="200" Minimum="1" Orientation="Vertical"
+                    TickFrequency="5" Value="100"/>
+        </Grid>
+
+        <!-- Pattern Controls --><!--
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+            <Grid x:Name="GridPatternControls">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                --><!-- Name Input --><!--
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="Pattern Name"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                --><!-- Pattern Target Selection --><!--
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="Target"/>
+                <ComboBox Grid.Row="1" Grid.Column="1" SelectedIndex="{Binding Path=Target, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem Content="Drafting"/>
+                    <ComboBoxItem Content="Model"/>
+                </ComboBox>
+
+                --><!-- Pattern Creation Type Selection --><!--
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Creation Type"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" SelectedIndex="{Binding Path=CreationType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem Content="Basic"/>
+                    <ComboBoxItem Content="Custom"/>
+                </ComboBox>
+
+                --><!-- Host Orientation (Optional) --><!--
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="Host Orientation" 
+                           IsEnabled="{Binding Path=HostOrientationIsEnabled}"/>
+                <ComboBox Grid.Row="3" Grid.Column="1" IsEnabled="{Binding Path=HostOrientationIsEnabled}"
+                          SelectedIndex="{Binding Path=HostOrientation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem Content="Option 1"/>
+                    <ComboBoxItem Content="Option 2"/>
+                    <ComboBoxItem Content="Option 3"/>
+                </ComboBox>
+
+                --><!-- Scale Adjustment Controls --><!--
+                <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Margin="5" Text="Scale"/>
+                    --><!-- NumberBox to control the scale value --><!--
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="NumChangeScaleValue" Grid.Column="1" Width="50" Text="2"/>
+                        <StackPanel Orientation="Vertical">
+                            <RepeatButton Content="▲" Width="20" Command="{Binding Path=IncreasePatternScaleCommand}"
+                            CommandParameter="{Binding ElementName=NumChangeScaleValue, Path=Text}"
+                            IsEnabled="{Binding Path=IsEnableIncreasePatternScale}"/>
+                            <RepeatButton Content="▼" Width="20" Command="{Binding Path=DecreasePatternScaleCommand}"
+                            CommandParameter="{Binding ElementName=NumChangeScaleValue, Path=Text}"
+                            IsEnabled="{Binding Path=IsEnableDecreasePatternScale}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </ScrollViewer>-->
+    </Grid>
+</UserControl>

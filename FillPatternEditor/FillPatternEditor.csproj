@@ -8,10 +8,10 @@
     <PackageId>FillPatternEditors</PackageId>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="HelixToolkit.Core.Wpf" Version="2.25.0" />
-    <PackageReference Include="SkiaSharp" Version="2.88.8" />
-    <PackageReference Include="SkiaSharp.Views.WPF" Version="2.88.8" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.0.0" />
+    <PackageReference Include="MouseKeyHook" Version="5.7.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,5 +22,9 @@
       <HintPath>libs\RevitAPIUI.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y /R &quot;$(TargetDir)*.dll&quot; &quot;C:\ProgramData\Autodesk\Revit\Addins\2025\test&quot;" />
+  </Target>
 
 </Project>
